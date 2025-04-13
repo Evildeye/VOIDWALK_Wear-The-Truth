@@ -10,47 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
             link: 'https://shopee.co.id/black-oversized-tee'
         },
         { 
-            name: 'White Minimalist Dress', 
-            price: 599000,
+            name: 'Voidwalk - Mortsin', 
+            price: 150000,
             image: 'img/image2.jpg',
             link: 'https://shopee.co.id/white-minimalist-dress'
         },
-        { 
-            name: 'Monochrome Blazer', 
-            price: 899000,
-            image: 'img/image3.jpg',
-            link: 'https://shopee.co.id/monochrome-blazer'
-        },
-        { 
-            name: 'Graphic Print Hoodie', 
-            price: 399000,
-            image: 'img/image4.jpg',
-            link: 'https://shopee.co.id/graphic-print-hoodie'
-        },
-        { 
-            name: 'Classic White Sneakers', 
-            price: 799000,
-            image: 'img/image5.jpg',
-            link: 'https://shopee.co.id/classic-white-sneakers'
-        },
-        { 
-            name: 'Black Leather Jacket', 
-            price: 1299000,
-            image: 'img/image6.jpg',
-            link: 'https://shopee.co.id/black-leather-jacket'
-        },
-        { 
-            name: 'Striped Long Sleeve', 
-            price: 349000,
-            image: 'img/image7.jpg',
-            link: 'https://shopee.co.id/striped-long-sleeve'
-        },
-        { 
-            name: 'Wide Leg Pants', 
-            price: 549000,
-            image: 'img/image8.jpg',
-            link: 'https://shopee.co.id/wide-leg-pants'
-        }
+        
+        
     ];
 
     function renderProducts(productsArray) {
