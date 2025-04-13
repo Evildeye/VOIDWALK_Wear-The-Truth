@@ -1,10 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const productsGrid = document.querySelector('.products-grid');
-    const cartIcon = document.getElementById('cartIcon');
-    const cartPanel = document.querySelector('.cart-panel');
     const searchInput = document.getElementById('searchInput');
     
-    // Data produk dengan link Shopee
     const products = [
         { 
             name: 'Black Oversized Tee', 
@@ -56,10 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
-    // Inisialisasi keranjang
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    // Fungsi render produk
     function renderProducts(productsArray) {
         productsGrid.innerHTML = '';
         productsArray.forEach(product => {
@@ -73,9 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="product-info">
                     <h3 class="product-name">${product.name}</h3>
                     <p class="product-price">IDR ${product.price.toLocaleString()}</p>
-                    <button class="add-to-cart" onclick="addToCart(${JSON.stringify(product).replace(/</g, '\\u003c')})">
-                        Tambahkan ke Keranjang
-                    </button>
+                    <a href="${product.link}" target="_blank" class="order-text">Click T-Shirt for Order</a>
                 </div>
             `;
             
@@ -83,7 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Fungsi pencarian
     function handleSearch() {
         const searchTerm = searchInput.value.toLowerCase();
         const filteredProducts = products.filter(product => 
@@ -92,83 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
         renderProducts(filteredProducts);
     }
 
-    // Fungsi keranjang
-    function saveCartToStorage() {
-        localStorage.setItem('cart', JSON.stringify(cart));
-    }
-
-    function addToCart(product) {
-        const existingItem = cart.find(item => item.name === product.name);
-        if(existingItem) {
-            existingItem.quantity++;
-        } else {
-            cart.push({...product, quantity: 1});
-        }
-        updateCart();
-        saveCartToStorage();
-    }
-
-    function updateCart() {
-        const cartItems = document.querySelector('.cart-items');
-        const cartCount = document.querySelector('.cart-count');
-        const cartTotal = document.querySelector('.cart-total span');
-        
-        cartItems.innerHTML = '';
-        let total = 0;
-        
-        cart.forEach(item => {
-            total += item.price * item.quantity;
-            cartItems.innerHTML += `
-                <div class="cart-item">
-                    <div>
-                        <h4>${item.name}</h4>
-                        <p>IDR ${(item.price * item.quantity).toLocaleString()}</p>
-                    </div>
-                    <div class="quantity-controls">
-                        <button onclick="changeQuantity('${item.name}', -1)">-</button>
-                        <span>${item.quantity}</span>
-                        <button onclick="changeQuantity('${item.name}', 1)">+</button>
-                    </div>
-                </div>
-            `;
-        });
-        
-        cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
-        cartTotal.textContent = `IDR ${total.toLocaleString()}`;
-    }
-
-    window.changeQuantity = function(productName, amount) {
-        const item = cart.find(item => item.name === productName);
-        if(item) {
-            item.quantity += amount;
-            if(item.quantity < 1) {
-                cart = cart.filter(i => i !== item);
-            }
-            updateCart();
-            saveCartToStorage();
-        }
-    }
-
-    // Event Listeners
     searchInput.addEventListener('input', handleSearch);
-    cartIcon.addEventListener('click', () => cartPanel.classList.add('active'));
-    document.querySelector('.close-cart').addEventListener('click', () => 
-        cartPanel.classList.remove('active')
-    );
-
-    // Initial render
     renderProducts(products);
-    updateCart();
-
-    // Tutup panel keranjang saat klik di luar
-    document.addEventListener('click', (e) => {
-        if(!cartPanel.contains(e.target) && !cartIcon.contains(e.target)) {
-            cartPanel.classList.remove('active');
-        }
-    });
-});
-
-// Handle klik di dalam panel keranjang
-document.querySelector('.cart-panel').addEventListener('click', (e) => {
-    e.stopPropagation();
 });
