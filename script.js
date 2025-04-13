@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const products = [
         { 
-            name: 'Black Oversized Tee', 
-            price: 249000,
+            name: 'Voidwalk - Ourrity Tee Black', 
+            price: 150000,
             image: 'img/image1.jpg',
             link: 'https://shopee.co.id/black-oversized-tee'
         },
