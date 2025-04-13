@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
             link: 'https://shopee.co.id/black-oversized-tee'
         },
         { 
-            name: 'Voidwalk - Mortsin', 
+            name: 'Voidwalk - Mortsin Tee Black', 
             price: 150000,
             image: 'img/image2.jpg',
             link: 'https://shopee.co.id/white-minimalist-dress'
