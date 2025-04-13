@@ -22,6 +22,107 @@ body {
     top: 0;
     z-index: 1000;
 }
+/* Pencarian */
+.search-container {
+    position: relative;
+    display: inline-block;
+}
+
+#searchInput {
+    padding: 8px 30px 8px 15px;
+    border: none;
+    border-radius: 20px;
+    width: 0;
+    transition: width 0.3s;
+    background: #333;
+    color: white;
+}
+
+.search-container:hover #searchInput,
+#searchInput:focus {
+    width: 200px;
+    outline: none;
+}
+
+.search-container .fa-search {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+}
+
+/* Keranjang */
+.cart-count {
+    background: white;
+    color: black;
+    padding: 2px 8px;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    margin-left: -5px;
+}
+
+.cart-panel {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100vh;
+    background: white;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    transition: right 0.3s;
+    z-index: 1001;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-panel.active {
+    right: 0;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.cart-items {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #f8f8f8;
+    border-radius: 5px;
+}
+
+.cart-total {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .cart-panel {
+        width: 100%;
+        right: -100%;
+    }
+    
+    #searchInput {
+        position: absolute;
+        right: 0;
+        top: 50px;
+        width: 200px !important;
+    }
+            }
 
 .logo {
     font-size: 2rem;
