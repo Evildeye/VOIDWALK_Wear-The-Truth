@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="product-info">
                     <h3 class="product-name">${product.name}</h3>
                     <p class="product-price">IDR ${product.price.toLocaleString()}</p>
-                    <a href="${product.link}" target="_blank" class="order-text">Click T-Shirt for Order</a>
+                    <a href="${product.link}" target="_blank" class="order-text">Click Here for Order</a>
                 </div>
             `;
 
