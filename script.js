@@ -53,8 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                         `).join('')}
                     </div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
+                    <div class=""></div>
+                    <div class=""></div>
                 </div>
                 <div class="product-info">
                     <h3 class="product-name">${product.name}</h3>
