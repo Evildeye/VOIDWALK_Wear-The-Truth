@@ -6,49 +6,49 @@ document.addEventListener('DOMContentLoaded', () => {
         { 
             name: 'Black Oversized Tee', 
             price: 249000,
-            image: 'https://source.unsplash.com/random/600x800/?fashion,black,shirt',
+            image: 'img/image1.jpg',
             link: 'https://shopee.co.id/black-oversized-tee'
         },
         { 
             name: 'White Minimalist Dress', 
             price: 599000,
-            image: 'https://source.unsplash.com/random/600x800/?dress,white',
+            image: 'img/image2.jpg',
             link: 'https://shopee.co.id/white-minimalist-dress'
         },
         { 
             name: 'Monochrome Blazer', 
             price: 899000,
-            image: 'https://source.unsplash.com/random/600x800/?blazer',
+            image: 'img/image3.jpg',
             link: 'https://shopee.co.id/monochrome-blazer'
         },
         { 
             name: 'Graphic Print Hoodie', 
             price: 399000,
-            image: 'https://source.unsplash.com/random/600x800/?hoodie',
+            image: 'img/image4.jpg',
             link: 'https://shopee.co.id/graphic-print-hoodie'
         },
         { 
             name: 'Classic White Sneakers', 
             price: 799000,
-            image: 'https://source.unsplash.com/random/600x800/?sneakers,white',
+            image: 'img/image5.jpg',
             link: 'https://shopee.co.id/classic-white-sneakers'
         },
         { 
             name: 'Black Leather Jacket', 
             price: 1299000,
-            image: 'https://source.unsplash.com/random/600x800/?jacket,leather',
+            image: 'img/image6.jpg',
             link: 'https://shopee.co.id/black-leather-jacket'
         },
         { 
             name: 'Striped Long Sleeve', 
             price: 349000,
-            image: 'https://source.unsplash.com/random/600x800/?shirt,striped',
+            image: 'img/image7.jpg',
             link: 'https://shopee.co.id/striped-long-sleeve'
         },
         { 
             name: 'Wide Leg Pants', 
             price: 549000,
-            image: 'https://source.unsplash.com/random/600x800/?pants',
+            image: 'img/image8.jpg',
             link: 'https://shopee.co.id/wide-leg-pants'
         }
     ];
