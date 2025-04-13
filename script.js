@@ -6,18 +6,37 @@ document.addEventListener('DOMContentLoaded', () => {
         { 
             name: 'Voidwalk - Ourrity Tee Black', 
             price: 150000,
-            image: 'img/image1.jpg',
-            link: 'https://shopee.co.id/black-oversized-tee'
+            images: [
+                'img/image1.jpg',
+                'img/image1-2.jpg'
+            ],
+            link: 'https://shopee.co.id/ourrity-tee'
         },
         { 
             name: 'Voidwalk - Mortsin Tee Black', 
             price: 150000,
-            image: 'img/image2.jpg',
-            link: 'https://shopee.co.id/white-minimalist-dress'
-        },
-        
-        
+            images: [
+                'img/image2.jpg',
+                'img/image2-2.jpg'
+            ],
+            link: 'https://shopee.co.id/mortsin-tee'
+        }
     ];
+
+    function initSwiper(container) {
+        new Swiper(container, {
+            loop: true,
+            navigation: {
+                nextEl: container.querySelector('.swiper-button-next'),
+                prevEl: container.querySelector('.swiper-button-prev'),
+            },
+            resistanceRatio: 0.6,
+            grabCursor: true,
+            observer: true,
+            observeParents: true,
+            speed: 500
+        });
+    }
 
     function renderProducts(productsArray) {
         productsGrid.innerHTML = '';
@@ -26,17 +45,26 @@ document.addEventListener('DOMContentLoaded', () => {
             productCard.className = 'product-card';
             
             productCard.innerHTML = `
-                <a href="${product.link}" target="_blank">
-                    <img src="${product.image}" alt="${product.name}" class="product-image">
-                </a>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        ${product.images.map(img => `
+                            <div class="swiper-slide">
+                                <img src="${img}" alt="${product.name}">
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
                 <div class="product-info">
                     <h3 class="product-name">${product.name}</h3>
                     <p class="product-price">IDR ${product.price.toLocaleString()}</p>
                     <a href="${product.link}" target="_blank" class="order-text">Click T-Shirt for Order</a>
                 </div>
             `;
-            
+
             productsGrid.appendChild(productCard);
+            initSwiper(productCard.querySelector('.swiper-container'));
         });
     }
 
